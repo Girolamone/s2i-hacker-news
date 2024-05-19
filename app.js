@@ -15,11 +15,10 @@ axios.get('https://hacker-news.firebaseio.com/v0/newstories.json')
 .then(function (response) {
     const newsIds = _.slice(response.data, newsStart, newsStart + newsLimit); 
     const requestNews = _.map(newsIds, id => axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)); 
-    console.log(response.data);
-    console.log(response.status);
-    console.log(response.statusText);
-    console.log(response.headers);
-    console.log(response.config);
+    
+    
+    
+
 
 
    
