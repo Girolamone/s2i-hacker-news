@@ -14,7 +14,7 @@ function getMoreNews(){
 axios.get('https://hacker-news.firebaseio.com/v0/newstories.json')
 .then(function (response) {
     const newsIds = _.slice(response.data, newsStart, newsStart + newsLimit); 
-    const requestNews = _.map(newsIds, id => axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)); // Fix here
+    const requestNews = _.map(newsIds, id => axios.get(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)); 
     console.log(response.data);
     console.log(response.status);
     console.log(response.statusText);
@@ -24,11 +24,11 @@ axios.get('https://hacker-news.firebaseio.com/v0/newstories.json')
 
    
 
-    Promise.all(requestNews) // Fix here
+    Promise.all(requestNews) 
     .then(responses => {
         const newsData = _.map(responses, 'data'); 
         
-        console.log(newsData); // You can do something with newsData here
+        console.log(newsData); 
         OnScreen(newsData);
         appendLoadMoreButton();
     })
@@ -49,14 +49,14 @@ axios.get('https://hacker-news.firebaseio.com/v0/newstories.json')
 
 
 
-function OnScreen(newsArray) { // Corrected parameter name
-    newsArray.forEach(item => { // Changed parameter name from element to item
+function OnScreen(newsArray) { 
+    newsArray.forEach(item => { 
         const title = _.get(item, 'title', 'Untitled');
         const url = _.get(item, 'url');
         const time = new Date(_.get(item, 'time', 0) * 1000).toLocaleString();
 
         const newsDiv = document.createElement('div');
-        newsDiv.classList.add("news-item"); // Add a class to the news div for styling
+        newsDiv.classList.add("news-item"); 
         newsDiv.innerHTML =  `<h3 class="news-title">${title}</h3>
         <a class="news-anchor" href="${url}" target="_blank" rel="noopener noreferrer">Click here to read</a>
         <p class="news-date">Date: ${time}</p>`;
