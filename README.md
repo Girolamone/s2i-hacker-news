@@ -22,4 +22,4 @@ This News Engine is a project for the Javascript Advance course at start2impact 
 
 
 ## Give it a go, also works on Mobile.
-🗝️<a href="https://pvihackernews.netlify.app">._Hacker N3ws._</a>🗝️
+🗝️<a href="https://pvihacknews.netlify.app">._Hacker N3ws._</a>🗝️
